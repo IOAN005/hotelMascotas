@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,4 +22,6 @@ public class Habitacion {
     private String descripcion;
     @Column(length = 30,nullable = false)
     private String tipoAnimal;
+    @ManyToMany
+    private List<Mascota>mascotas;
 }

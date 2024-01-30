@@ -26,6 +26,8 @@ public class Mascota {
     private String tamano;
     @Column (length = 30,nullable = false)
     private String tipoMascota;
+    @ManyToOne
+    @JoinColumn(name="id_cliente",nullable = false,foreignKey = @ForeignKey(name="FK_mascotas_clientes"))
 
-    private List<Mascota>mascotas;
+    private Cliente cliente;
 }
