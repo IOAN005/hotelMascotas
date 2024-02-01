@@ -22,6 +22,16 @@ public class Habitacion {
     private String descripcion;
     @Column(length = 30,nullable = false)
     private String tipoAnimal;
-    @ManyToMany
-    private List<Mascota>mascotas;
+
+
+    @ManyToOne
+    @JoinColumn(name = "id_reserva")
+    private Reserva reserva;
+
+
+//    @ManyToOne
+//    @JoinColumn(name = "id_mascota",nullable = false,foreignKey = @ForeignKey(name = "FK_mascotas_habitaciones"))
+//    private Mascota mascotas;
+
+
 }

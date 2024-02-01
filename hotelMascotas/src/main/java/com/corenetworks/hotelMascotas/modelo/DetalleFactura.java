@@ -15,20 +15,21 @@ public class DetalleFactura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDetalleFactura;
+    @Column(length = 60,nullable = false)
 
     private String concepto;
+    @Column(nullable = false)
     private double precio;
-    @OneToOne
-    @JoinColumn(name = "id_cliente", nullable = false, foreignKey = @ForeignKey(name = "FK_clientes_detalles_facturas"))
-    private Cliente cliente;
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "id_reservas", nullable = false, foreignKey = @ForeignKey(name = "FK_reservas_detalles_facturas"))
-    private Reserva reserva;
-    @OneToOne
-    @JoinColumn(name = "id_factura", nullable = false, foreignKey = @ForeignKey(name = "FK_facturas_detalles_facturas"))
-    private Factura factura;
-    @ManyToOne
-    @JoinColumn(name = "id_servicio", nullable = false, foreignKey = @ForeignKey(name = "FK_servicios_detalles_facturas"))
-    private Servicio servicio;
+//    @ManyToOne
+//    @JoinColumn(name = "idReserva",nullable = false,foreignKey = @ForeignKey(name = "FK_reservas_detalles_facturas"))
+//    private Reserva reserva;
+//    @OneToOne
+//    @JoinColumn(name = "idFactura",nullable = false,foreignKey = @ForeignKey(name = "FK_facturas_detalles_facturas"))
+//    private Factura factura;
+//    @ManyToOne
+//    @JoinColumn(name = "idServicio",nullable = false,foreignKey = @ForeignKey(name = "FK_servios_detalles_facturas"))
+//    private Servicio servicio;
+
+
+
 }

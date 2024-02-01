@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
 @Table(name = "mascotas")
 public class Mascota {
@@ -26,8 +27,11 @@ public class Mascota {
     private String tamano;
     @Column (length = 30,nullable = false)
     private String tipoMascota;
-    @ManyToOne
-    @JoinColumn(name="id_cliente",nullable = false,foreignKey = @ForeignKey(name="FK_mascotas_clientes"))
+    //@ManyToOne
+    //@JoinColumn(name="idCliente",nullable = false,foreignKey = @ForeignKey(name="FK_mascotas_clientes"))
+    //private Cliente cliente;
 
-    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "id_reserva", nullable = false, foreignKey = @ForeignKey(name = "FK_mascota_reserva"))
+    private Reserva reserva;
 }
