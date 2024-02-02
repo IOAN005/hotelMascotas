@@ -27,4 +27,5 @@ public class Cliente {
 //    @ManyToOne
 //    @JoinColumn(name = "id_reserva", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_reserva"))
 //    private Reserva reserva;
+    //
 }
