@@ -23,8 +23,8 @@ public class Cliente {
     private String direccion;
     @Column(length = 9)
     private String telefono;
-
-    @ManyToOne
-    @JoinColumn(name = "id_reserva", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_reserva"))
-    private Reserva reserva;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "id_reserva", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_reserva"))
+//    private Reserva reserva;
 }
