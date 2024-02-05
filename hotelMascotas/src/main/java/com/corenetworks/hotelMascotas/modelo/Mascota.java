@@ -17,21 +17,20 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMascota;
-    @Column(length = 60,nullable = false)
+    @Column(length = 60, nullable = false)
     private String nombre;
-    @Column(length = 50,nullable = false)
+    @Column(length = 50, nullable = false)
     private String raza;
     @Column(nullable = false)
     private int edad;
-    @Column(length = 30,nullable = false)
+    @Column(length = 30, nullable = false)
     private String tamano;
-    @Column (length = 30,nullable = false)
-    private String tipoMascota;
-    //@ManyToOne
-    //@JoinColumn(name="idCliente",nullable = false,foreignKey = @ForeignKey(name="FK_mascotas_clientes"))
-    //private Cliente cliente;
+    @Column(length = 30, nullable = false)
+    private String tipoHabitacion;
 
+    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Reserva> reservas;
     @ManyToOne
-    @JoinColumn(name = "id_reserva", nullable = false, foreignKey = @ForeignKey(name = "FK_mascota_reserva"))
-    private Reserva reserva;
+    @JoinColumn(name = "idCliente", nullable = false, foreignKey = @ForeignKey(name = "FK_mascota_cliente"))
+    private Cliente cliente;
 }

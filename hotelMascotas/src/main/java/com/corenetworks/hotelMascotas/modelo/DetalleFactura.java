@@ -6,30 +6,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="detalles_facturas")
 public class DetalleFactura {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDetalleFactura;
-    @Column(length = 60,nullable = false)
-
+    @Column(length = 120)
     private String concepto;
-    @Column(nullable = false)
     private double precio;
-//    @ManyToOne
-//    @JoinColumn(name = "idReserva",nullable = false,foreignKey = @ForeignKey(name = "FK_reservas_detalles_facturas"))
-//    private Reserva reserva;
-//    @OneToOne
-//    @JoinColumn(name = "idFactura",nullable = false,foreignKey = @ForeignKey(name = "FK_facturas_detalles_facturas"))
-//    private Factura factura;
-//    @ManyToOne
-//    @JoinColumn(name = "idServicio",nullable = false,foreignKey = @ForeignKey(name = "FK_servios_detalles_facturas"))
-//    private Servicio servicio;
-
-
-
+    private LocalDate fechaFactura;
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "id_reserva", referencedColumnName = "idReserva", insertable = false, updatable = false),
+            @JoinColumn(name = "idMascota", referencedColumnName = "idMascota", insertable = false, updatable = false),
+            @JoinColumn(name = "idHabitacion", referencedColumnName = "idHabitacion", insertable = false, updatable = false)
+    })
+    private Reserva reserva;
+    @ManyToOne
+    @JoinColumn(name = "id_factura", nullable = false, foreignKey = @ForeignKey(name = "FK_facturas_detalles_facturas"))
+    private Factura factura;
+    @ManyToOne
+    @JoinColumn(name= "id_servicio", nullable = false, foreignKey = @ForeignKey(name= "FK_servicios_detalles_facturas"))
+    private Servicio servicio;
 }

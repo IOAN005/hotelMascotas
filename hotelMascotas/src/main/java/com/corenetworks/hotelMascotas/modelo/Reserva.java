@@ -12,25 +12,19 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="reservas")
-
+@Table(name="reservas_mascotas_habitaciones")
+@IdClass(ReservaPK.class)
 public class Reserva {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReserva;
+    @Id
+    private Mascota mascota;
+    @Id
+    private Habitacion habitacion;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
+    private double precio;
 
 
-    @OneToMany(mappedBy = "reserva")
-    private List<Habitacion> habitaciones;
-
-    @OneToMany(mappedBy = "reserva")
-    private List<Mascota> mascotas;
-
-    @OneToMany(mappedBy = "cliente")
-    private List<Cliente> cliente;
 
 
 }

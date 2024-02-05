@@ -13,25 +13,19 @@ import java.util.List;
 @Entity
 @Table(name = "habitaciones")
 public class Habitacion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idHabitacion;
     @Column(nullable = false)
     private double tarifa;
     @Column(length = 60,nullable = false)
-    private String descripcion;
+    private String description;
     @Column(length = 30,nullable = false)
-    private String tipoAnimal;
+    private String tipoHabitacion;
 
 
-    @ManyToOne
-    @JoinColumn(name = "id_reserva")
-    private Reserva reserva;
-
-
-//    @ManyToOne
-//    @JoinColumn(name = "id_mascota",nullable = false,foreignKey = @ForeignKey(name = "FK_mascotas_habitaciones"))
-//    private Mascota mascotas;
-
+    @OneToMany(mappedBy = "habitacion",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Reserva> reservas;
 
 }

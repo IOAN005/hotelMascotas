@@ -14,16 +14,12 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFactura;
-//    @OneToOne
-//    @JoinColumn(name = "idReserva",nullable = false,foreignKey = @ForeignKey(name = "FK_reservas_facturas"))
-//    private Reserva reserva;
-//    @OneToOne
-//    @JoinColumn(name ="idDetalleFactura" ,nullable = false,foreignKey = @ForeignKey(name = "FK_detalles_facturas_facturas"))
-//    private DetalleFactura detalleFactura;
-//    @OneToOne
-//    @JoinColumn(name = "idClientes",nullable = false,foreignKey =@ForeignKey(name = "FK_clientes_facturas") )
-//    private Cliente cliente;
 
+
+
+    @ManyToOne
+    @JoinColumn(name= "idCliente", nullable = false, foreignKey = @ForeignKey(name= "FK_factura_cliente"))
+    private Cliente cliente;
 
 
 

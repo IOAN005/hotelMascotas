@@ -1,5 +1,6 @@
 package com.corenetworks.hotelMascotas.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,16 +17,18 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCliente;
-    @Column(length = 60,nullable = false)
-
+    @Column(length = 60)
     private String nombre;
-    @Column(length = 60,nullable = false)
+    @Column(length = 120)
     private String direccion;
     @Column(length = 9)
     private String telefono;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "id_reserva", nullable = false, foreignKey = @ForeignKey(name = "FK_cliente_reserva"))
-//    private Reserva reserva;
-    //
+
+    //en caso de no necesitarlo para front, fuera linea 28
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Mascota> mascotas;
+    //en caso de no necesitarlo para front, fuera linea 31
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Factura> facturas;
 }

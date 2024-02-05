@@ -14,10 +14,7 @@ public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idServicio;
+    @Column(length = 120)
     private String concepto;
     private double precio;
-//    @ManyToOne
-//    @JoinColumn(name = "idDetalleFactura",nullable = false,foreignKey = @ForeignKey(name = "FK_detalles_facturas_servicios"))
-//    private DetalleFactura detalleFactura;
-
 }
