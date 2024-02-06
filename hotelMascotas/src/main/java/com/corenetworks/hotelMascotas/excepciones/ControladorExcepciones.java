@@ -25,10 +25,10 @@ public class ControladorExcepciones extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(e1, HttpStatus.NOT_FOUND);
 
     }
-
+   @ExceptionHandler(Exception.class)
     public final ResponseEntity<ExcepcionRespuesta> catchTodasLasExcepciones
             (Exception ex, WebRequest peticion){
-        //1. Crear un objeto de Excepcion Respuesta
+        //1. Crear un objeto de Excepcion Respuest
         ExcepcionRespuesta e1 = new ExcepcionRespuesta(LocalDateTime.now(), ex.getMessage(),
                 peticion.getDescription(false));
         //2. Devolverla
