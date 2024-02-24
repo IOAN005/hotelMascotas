@@ -2,7 +2,7 @@ package com.corenetworks.hotelMascotas.controlador;
 
 import com.corenetworks.hotelMascotas.excepciones.ExcepcionPersonalizadaNoEncontrado;
 import com.corenetworks.hotelMascotas.modelo.Cliente;
-import com.corenetworks.hotelMascotas.service.IClienteService;
+import com.corenetworks.hotelMascotas.service.IClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ControladorCliente {
     @Autowired
-    private IClienteService servicio;
+    private IClienteServicio servicio;
     @PostMapping
     public ResponseEntity<Cliente> insertar(@RequestBody Cliente c) throws Exception {
         Cliente c1 = servicio.insertar(c);
