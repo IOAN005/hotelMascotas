@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 
-public class FacturaDto {
+public class FacturaDTO {
     private int idFactura;
 
     public Factura castFactura(){
@@ -19,7 +19,7 @@ public class FacturaDto {
 
         return f1;
     }
-    public FacturaDto castFacturaDto(Factura f){
+    public FacturaDTO castFacturaDto(Factura f){
         idFactura=f.getIdFactura();
         return this;
 

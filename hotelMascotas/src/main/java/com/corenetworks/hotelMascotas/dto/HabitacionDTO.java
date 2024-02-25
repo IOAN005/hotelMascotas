@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HabitacionDto {
+public class HabitacionDTO {
 
     private int idHabitacion;
     @Min(1)
@@ -32,7 +32,7 @@ public class HabitacionDto {
         h1.setTipoHabitacion(tipoHabitacion);
         return h1;
     }
-    public HabitacionDto castHabitacionDto(Habitacion h){
+    public HabitacionDTO castHabitacionDto(Habitacion h){
         idHabitacion=h.getIdHabitacion();
         tarifa=h.getTarifa();
         description=h.getDescription();

@@ -4,7 +4,13 @@ import com.corenetworks.hotelMascotas.modelo.Servicio;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ServicioDTO {
 
         private int idServicio;
