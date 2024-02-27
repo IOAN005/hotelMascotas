@@ -38,7 +38,7 @@ import java.util.List;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<FacturaDTO> consultarUno(@Valid @PathVariable(name="id") Integer id)throws Exception {
+    public ResponseEntity<FacturaDTO> consultarUno( @PathVariable(name="id") Integer id)throws Exception {
         Factura f1 = servicio.consultarUno(id);
         if (f1 == null) {
             throw new ExcepcionPersonalizadaNoEncontrado("Factura no encontrada con ID " + id);

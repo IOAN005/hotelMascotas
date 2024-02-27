@@ -44,7 +44,7 @@ public class ControladorServicio {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ServicioDTO> consultarUno(@Valid @PathVariable(name="id") Integer id)throws Exception {
+    public ResponseEntity<ServicioDTO> consultarUno( @PathVariable(name="id") Integer id)throws Exception {
         Servicio s1 = servicio.consultarUno(id);
         if (s1 == null) {
             throw new ExcepcionPersonalizadaNoEncontrado("Servicio no encontrado con ID " + id);

@@ -41,7 +41,7 @@ import java.util.List;
         }
 
         @GetMapping("/{id}")
-        public ResponseEntity<ReservaDTO> consultarUno(@Valid @PathVariable(name="id") Integer id)throws Exception {
+        public ResponseEntity<ReservaDTO> consultarUno( @PathVariable(name="id") Integer id)throws Exception {
             Reserva r1 = servicio.consultarUno(id);
             if (r1 == null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("Reserva no encontrada con ID " + id);
@@ -50,7 +50,7 @@ import java.util.List;
         }
 
         @PutMapping
-        public ResponseEntity<ReservaDTO> modificar(@Valid @RequestBody ReservaDTO r)throws  Exception {
+        public ResponseEntity<ReservaDTO> modificarReserva(@Valid @RequestBody ReservaDTO r)throws  Exception {
             Reserva r1 = servicio.consultarUno(r.getIdReserva());
             if (r1==null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("Reserva no encontrada" +r.getIdReserva());

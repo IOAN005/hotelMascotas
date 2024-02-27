@@ -25,6 +25,7 @@ public class Cliente {
     private String telefono;
 
     //en caso de no necesitarlo para front, fuera linea 28
+
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Mascota> mascotas;
     //en caso de no necesitarlo para front, fuera linea 31

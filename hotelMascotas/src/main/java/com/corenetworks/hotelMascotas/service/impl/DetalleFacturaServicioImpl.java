@@ -5,7 +5,9 @@ import com.corenetworks.hotelMascotas.repository.IDetalleFacturaRepositorio;
 import com.corenetworks.hotelMascotas.repository.IGenericoRepositorio;
 import com.corenetworks.hotelMascotas.service.IDetallesFacturaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DetalleFacturaServicioImpl extends ICRUDImpl <DetalleFactura,Integer> implements IDetallesFacturaServicio {
     @Autowired
     private IDetalleFacturaRepositorio repo;

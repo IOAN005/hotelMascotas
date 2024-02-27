@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/detalles_facturas")
 
 public class ControladorDetallesFactura {
-   @Autowired
+    @Autowired
     private IDetallesFacturaServicio servicio;
 
     @GetMapping
@@ -25,7 +25,7 @@ public class ControladorDetallesFactura {
         List<DetalleFactura>detalleFacturasBBDD=servicio.consultarTodos();
         List<DetalleFacturaDTO>detalleFacturaDTO=new ArrayList<>();
         for (DetalleFactura elemento:detalleFacturasBBDD
-             ) {
+        ) {
             detalleFacturaDTO.add(new DetalleFacturaDTO().castDetalleFacturaDto(elemento));
         }
 
@@ -34,8 +34,9 @@ public class ControladorDetallesFactura {
 
     @PostMapping
     public ResponseEntity<DetalleFacturaDTO> insertarDettalesFactura(@Valid  @RequestBody DetalleFacturaDTO dF)throws Exception {
+        System.out.println(dF.toString());
         DetalleFactura dF1 = dF.castDetalleFactura();
-                dF1=servicio.insertar(dF1);
+        dF1=servicio.insertar(dF1);
         return new ResponseEntity<>(dF.castDetalleFacturaDto(dF1), HttpStatus.CREATED);
     }
 
