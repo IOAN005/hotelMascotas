@@ -1,9 +1,7 @@
 package com.corenetworks.hotelMascotas.dto;
 
 import com.corenetworks.hotelMascotas.modelo.Cliente;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,13 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClienteDTO {
+
     private int idCliente;
-    @NotEmpty
+   @NotEmpty
+
     @Size(min=3,max=60)
     private String nombre;
-    @NotNull
+   @NotEmpty
     private String direccion;
-    @Max(9)
+   @Size(min = 9,max = 9)
     private String telefono;
 
 
