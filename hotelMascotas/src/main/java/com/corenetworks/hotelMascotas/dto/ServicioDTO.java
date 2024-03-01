@@ -16,7 +16,7 @@ public class ServicioDTO {
         private int idServicio;
         @NotEmpty
         private String concepto;
-        @NotEmpty
+
         @Min(5)
         @Max(50)
         private double precio;
