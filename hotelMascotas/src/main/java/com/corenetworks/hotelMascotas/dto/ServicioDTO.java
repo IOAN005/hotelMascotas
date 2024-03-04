@@ -21,6 +21,10 @@ public class ServicioDTO {
         @Max(50)
         private double precio;
 
+        private String imagen;
+
+        private String descripcion;
+
 
 
         public Servicio castServicio(){
@@ -28,6 +32,8 @@ public class ServicioDTO {
             s1.setIdServicio(idServicio);
             s1.setConcepto(concepto);
             s1.setPrecio(precio);
+            s1.setImagen(imagen);
+            s1.setDescripcion(descripcion);
             return s1;
 
         }
@@ -35,6 +41,8 @@ public class ServicioDTO {
             idServicio=s.getIdServicio();
             concepto=s.getConcepto();
             precio=s.getPrecio();
+            imagen=s.getImagen();
+            descripcion=s.getDescripcion();
             return  this;
         }
     }
