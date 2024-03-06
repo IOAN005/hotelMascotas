@@ -52,12 +52,16 @@ public class ControladorMascota {
         }
 
         @PutMapping
-        public ResponseEntity<MascotaDTO> modificarMascota(@Valid @RequestBody MascotaDTO m)throws  Exception {
-            Mascota m1 = servicio.consultarUno(m.getIdMascota());
-            if (m1==null) {
+        public ResponseEntity<Integer> modificarMascota(@Valid @RequestBody MascotaDTO m)throws  Exception {
+
+            Integer i =servicio.insert1(m);
+            System.out.println(i);
+
+
+            if (i==null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("Mascota no encontrada" +m.getIdMascota());
             }
-            return new ResponseEntity<>(m.castMascotaDTO(m1), HttpStatus.OK);
+            return new ResponseEntity<>(i, HttpStatus.CREATED);
         }
 
         @DeleteMapping("/{id}")
