@@ -34,10 +34,12 @@ public class ControladorMascota {
         }
 
         @PostMapping
-        public ResponseEntity<MascotaDTO> insertarMascota(@Valid @RequestBody MascotaDTO m)throws Exception {
-            Mascota m1 = m.castMascota();
-            m1=servicio.insertar(m1);
-            return new ResponseEntity<>(m.castMascotaDTO(m1), HttpStatus.CREATED);
+        public ResponseEntity<Integer> insertarMascota(@Valid @RequestBody MascotaDTO m)throws Exception {
+
+             Integer i =servicio.insert1(m);
+            System.out.println(i);
+            return new ResponseEntity<>(i, HttpStatus.CREATED);
+
         }
 
         @GetMapping("/{id}")

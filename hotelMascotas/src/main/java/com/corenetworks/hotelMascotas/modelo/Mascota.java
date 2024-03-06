@@ -1,5 +1,6 @@
 package com.corenetworks.hotelMascotas.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +28,10 @@ public class Mascota {
     private String tamano;
     @Column(length = 30, nullable = false)
     private String tipoHabitacion;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Reserva> reservas;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "idCliente", nullable = false, foreignKey = @ForeignKey(name = "FK_mascota_cliente"))
     private Cliente cliente;

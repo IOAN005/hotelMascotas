@@ -17,10 +17,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ReservaDTO {
     private int idReserva;
-   @NotEmpty
+@NotEmpty
     private LocalDate fechaEntrada;
-   @NotEmpty
+  @NotEmpty
     private LocalDate fechaSalida;
+
    @Min(1)
    @Max(40)
     private double precio;
