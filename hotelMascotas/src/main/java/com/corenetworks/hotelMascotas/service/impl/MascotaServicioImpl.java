@@ -19,7 +19,14 @@ public class MascotaServicioImpl extends ICRUDImpl<Mascota,Integer>implements IM
 
     @Override
     public Integer insert1(MascotaDTO m) {
+        System.out.println();
 
         return repo.inserta1(m.getEdad(),m.getNombre(),m.getRaza(),m.getTamano(),m.getTipoHabitacion(),m.getIdCliente());
     }
+
+    @Override
+    public Integer modificar1(MascotaDTO m) {
+        return repo.inserta1(m.getEdad(),m.getNombre(),m.getRaza(),m.getTamano(),m.getTipoHabitacion(),m.getIdCliente());
+    }
+
 }

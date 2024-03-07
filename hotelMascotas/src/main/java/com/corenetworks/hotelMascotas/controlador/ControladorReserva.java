@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Reservas")
+@RequestMapping("/reservas")
 
     public class ControladorReserva {
 
@@ -34,10 +34,10 @@ import java.util.List;
         }
 
         @PostMapping
-        public ResponseEntity<ReservaDTO> insertarREserva(@Valid  @RequestBody ReservaDTO r)throws Exception {
-            Reserva r1 = r.castReserva();
-            r1=servicio.insertar(r1);
-            return new ResponseEntity<>(r.castReservaDTO(r1), HttpStatus.CREATED);
+        public ResponseEntity<Integer> insertarREserva(@Valid  @RequestBody ReservaDTO r)throws Exception {
+
+            Integer i=servicio.insert1(r);
+            return new ResponseEntity<>(i, HttpStatus.CREATED);
         }
 
         @GetMapping("/{id}")
@@ -50,12 +50,12 @@ import java.util.List;
         }
 
         @PutMapping
-        public ResponseEntity<ReservaDTO> modificarReserva(@Valid @RequestBody ReservaDTO r)throws  Exception {
-            Reserva r1 = servicio.consultarUno(r.getIdReserva());
-            if (r1==null) {
+        public ResponseEntity<Integer> modificarReserva(@Valid @RequestBody ReservaDTO r)throws  Exception {
+            Integer i=servicio.insert1(r);
+            if (i==null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("Reserva no encontrada" +r.getIdReserva());
             }
-            return new ResponseEntity<>(r.castReservaDTO(r1), HttpStatus.OK);
+            return new ResponseEntity<>(i, HttpStatus.OK);
         }
 
         @DeleteMapping("/{id}")

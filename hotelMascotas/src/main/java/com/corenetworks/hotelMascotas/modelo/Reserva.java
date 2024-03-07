@@ -1,9 +1,6 @@
 package com.corenetworks.hotelMascotas.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +15,7 @@ import java.time.LocalDate;
 @IdClass(ReservaPK.class)
 public class Reserva {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReserva;
     @Id
     private Mascota mascota;
