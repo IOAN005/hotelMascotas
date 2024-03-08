@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,5 +69,18 @@ import java.util.List;
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
         }
+    @GetMapping("/{f1}/{f2}")
+    public ResponseEntity<List<ReservaDTO>> obtenerReservas(@PathVariable ("f1") LocalDate f1,
+                                                            @PathVariable("f2")LocalDate f2)
+            throws Exception{
+        List<Reserva> reservasBBDD = servicio.obtenerReservas(f1, f2);
+        List<ReservaDTO> reservasDto= new ArrayList<>();
+        for(Reserva elemento:
+                reservasBBDD){
+            ReservaDTO eDto = new ReservaDTO();
+            reservasDto.add(eDto.castReservaDTO(elemento));
+        }
+        return new ResponseEntity<>(reservasDto, HttpStatus.OK);
+    }
     }
 

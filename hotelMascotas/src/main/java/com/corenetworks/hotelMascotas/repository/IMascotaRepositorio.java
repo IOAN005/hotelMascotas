@@ -15,4 +15,5 @@ public interface IMascotaRepositorio extends IGenericoRepositorio <Mascota,Integ
 
 
 
+
 }
