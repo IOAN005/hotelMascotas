@@ -21,9 +21,9 @@ public class ReservaDTO {
 
    @Min(1)
    @Max(40)
-    private double precio;
+    private double precioR;
     private int idMascota;
-
+    private int cantidadNoches;
     private int idHabitacion;
 
 public Reserva castReserva(){
@@ -31,7 +31,8 @@ public Reserva castReserva(){
     r1.setIdReserva(idReserva);
     r1.setFechaEntrada(fechaEntrada);
     r1.setFechaSalida(fechaSalida);
-    r1.setPrecio(precio);
+    r1.setPrecioR(precioR);
+    r1.setCantidadNoches(cantidadNoches);
 
     return r1;
 }
@@ -39,7 +40,8 @@ public ReservaDTO castReservaDTO(Reserva r){
     idReserva=r.getIdReserva();
     fechaEntrada=r.getFechaEntrada();
     fechaSalida=r.getFechaSalida();
-    precio=r.getPrecio();
+    precioR=r.getPrecioR();
+    cantidadNoches=r.getCantidadNoches();
 
     return this;
 

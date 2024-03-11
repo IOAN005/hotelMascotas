@@ -16,7 +16,8 @@ public class Servicio {
     private int idServicio;
     @Column(length = 120)
     private String concepto;
-    private double precio;
+    private double precioS;
     private String imagen;
     private String descripcion;
+    private int cantidad;
 }

@@ -25,7 +25,7 @@ public class ReservaServicioImpl extends ICRUDImpl<Reserva,Integer> implements I
 
     @Override
     public Integer insert1(ReservaDTO r) {
-        return repo.insertar1(r.getFechaEntrada(),r.getFechaSalida(),r.getPrecio(),r.getIdMascota(),r.getIdHabitacion());
+        return repo.insertar1(r.getFechaEntrada(),r.getFechaSalida(),r.getPrecioR(),r.getIdMascota(),r.getIdHabitacion());
     }
 
     @Override

@@ -19,7 +19,7 @@ public class DetalleFacturaDTO {
     private String concepto;
     @Min(1)
     @Max(250)
-    private double precio;
+    private double precioDF;
     @NotNull
     private LocalDate fechaFactura;
 
@@ -28,14 +28,14 @@ public class DetalleFacturaDTO {
         DetalleFactura dF1= new DetalleFactura();
         dF1.setIdDetalleFactura(idDetalleFactura);
         dF1.setConcepto(concepto);
-        dF1.setPrecio(precio);
+        dF1.setPrecioDF(precioDF);
         dF1.setFechaFactura(fechaFactura);
         return dF1;
     }
     public DetalleFacturaDTO castDetalleFacturaDto(DetalleFactura dF){
         idDetalleFactura=getIdDetalleFactura();
         concepto=getConcepto();
-        precio=getPrecio();
+        precioDF=getPrecioDF();
         fechaFactura=getFechaFactura();
         return this;
 

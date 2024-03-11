@@ -1,6 +1,5 @@
 package com.corenetworks.hotelMascotas.modelo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +19,8 @@ public class DetalleFactura {
     private int idDetalleFactura;
     @Column(length = 120)
     private String concepto;
-    private double precio;
+    private double precioDF;
+
     private LocalDate fechaFactura;
     @ManyToOne
     @JoinColumns({

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +22,9 @@ public class Factura {
     @ManyToOne
     @JoinColumn(name= "idCliente", nullable = false, foreignKey = @ForeignKey(name= "FK_factura_cliente"))
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "facturas",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<DetalleFactura> detalleFacturas;
 
 
 

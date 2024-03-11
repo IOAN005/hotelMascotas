@@ -23,7 +23,8 @@ public class Reserva {
     private Habitacion habitacion;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
-    private double precio;
+    private double precioR;
+    private int cantidadNoches;
 
 
 
