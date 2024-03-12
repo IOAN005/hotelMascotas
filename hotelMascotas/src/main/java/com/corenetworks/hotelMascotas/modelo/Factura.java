@@ -1,5 +1,6 @@
 package com.corenetworks.hotelMascotas.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,12 +19,12 @@ public class Factura {
     private int idFactura;
 
 
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name= "idCliente", nullable = false, foreignKey = @ForeignKey(name= "FK_factura_cliente"))
     private Cliente cliente;
-
-    @OneToMany(mappedBy = "facturas",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    @OneToMany(mappedBy = "factura",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<DetalleFactura> detalleFacturas;
 
 

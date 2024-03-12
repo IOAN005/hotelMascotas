@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/mascotas")
 
@@ -53,18 +53,20 @@ public class ControladorMascota {
 
         @PutMapping
         public ResponseEntity<MascotaDTO> modificarMascota(@Valid @RequestBody MascotaDTO m)throws  Exception {
+            System.out.println(m.toString());
            Mascota m1 = servicio.consultarUno(m.getIdMascota());
-            System.out.println();
+
 
 
             if (m1==null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("Mascota no encontrada" +m.getIdMascota());
             }
+            m1=servicio.modificar(m.castMascota());
             return new ResponseEntity<>(m.castMascotaDTO(m1), HttpStatus.CREATED);
         }
 
         @DeleteMapping("/{id}")
-        public ResponseEntity<Void> eliminar(@PathVariable (name="id")Integer id)throws Exception {
+        public ResponseEntity<Void> eliminar(@PathVariable (name ="id")Integer id)throws Exception {
             Mascota m1 = servicio.consultarUno(id);
             System.out.println("---"+m1.getIdMascota());
             if (m1 == null) {

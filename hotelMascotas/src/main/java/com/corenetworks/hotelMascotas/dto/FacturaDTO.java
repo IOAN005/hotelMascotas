@@ -25,7 +25,7 @@ public class FacturaDTO {
     }
     public FacturaDTO castFacturaDto(Factura f){
         idFactura=f.getIdFactura();
-        cliente=getCliente();
+        cliente=f.getCliente();
         return this;
 
     }

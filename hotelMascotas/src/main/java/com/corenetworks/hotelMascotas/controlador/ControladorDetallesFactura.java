@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/detalles_facturas")
 
@@ -24,8 +24,8 @@ public class ControladorDetallesFactura {
     public ResponseEntity<List<DetalleFacturaDTO>> consultarTodos() throws Exception {
         List<DetalleFactura>detalleFacturasBBDD=servicio.consultarTodos();
         List<DetalleFacturaDTO>detalleFacturaDTO=new ArrayList<>();
-        for (DetalleFactura elemento:detalleFacturasBBDD
-        ) {
+        for (DetalleFactura elemento:detalleFacturasBBDD)  {
+
             detalleFacturaDTO.add(new DetalleFacturaDTO().castDetalleFacturaDto(elemento));
         }
 

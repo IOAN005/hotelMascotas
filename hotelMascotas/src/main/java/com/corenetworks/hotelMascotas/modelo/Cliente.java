@@ -31,6 +31,5 @@ public class Cliente {
     //en caso de no necesitarlo para front, fuera linea 31
     @JsonIgnore
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-
     private List<Factura> facturas;
 }

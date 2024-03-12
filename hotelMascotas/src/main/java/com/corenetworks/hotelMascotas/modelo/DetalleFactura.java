@@ -31,8 +31,8 @@ public class DetalleFactura {
     private Reserva reserva;
     @ManyToOne
     @JoinColumn(name = "id_factura", nullable = false, foreignKey = @ForeignKey(name = "FK_facturas_detalles_facturas"))
-    private Factura factura;
+    private Factura  factura;
     @ManyToOne
-    @JoinColumn(name= "id_servicio", nullable = false, foreignKey = @ForeignKey(name= "FK_servicios_detalles_facturas"))
+    @JoinColumn(name="id_servicio",nullable = false,foreignKey = @ForeignKey(name="FK_servicios_detalles_facturas"))
     private Servicio servicio;
 }
