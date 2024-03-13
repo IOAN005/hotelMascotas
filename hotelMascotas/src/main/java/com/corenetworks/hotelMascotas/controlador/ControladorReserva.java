@@ -38,7 +38,7 @@ import java.util.List;
         public ResponseEntity<Integer> insertarREserva(@Valid  @RequestBody ReservaDTO r)throws Exception {
 
             Integer i=servicio.insert1(r);
-            return new ResponseEntity<>(i, HttpStatus.CREATED);
+            return new ResponseEntity<>(servicio.insert1(r), HttpStatus.CREATED);
         }
 
         @GetMapping("/{id}")

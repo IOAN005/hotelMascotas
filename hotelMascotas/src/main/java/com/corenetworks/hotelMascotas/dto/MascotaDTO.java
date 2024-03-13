@@ -1,5 +1,6 @@
 package com.corenetworks.hotelMascotas.dto;
 
+import com.corenetworks.hotelMascotas.modelo.Cliente;
 import com.corenetworks.hotelMascotas.modelo.Mascota;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -28,12 +29,15 @@ public class MascotaDTO {
 
     public Mascota castMascota(){
         Mascota m1=new Mascota();
+        Cliente c1= new Cliente();
         m1.setIdMascota(idMascota);
         m1.setNombre(nombre);
         m1.setEdad(edad);
         m1.setRaza(raza);
         m1.setTamano(tamano);
         m1.setTipoHabitacion(tipoHabitacion);
+        c1.setIdCliente(idCliente);
+        m1.setCliente(c1);
 
         return m1;
     }
@@ -44,6 +48,7 @@ public class MascotaDTO {
         raza=m.getRaza();
         tamano=m.getTamano();
         tipoHabitacion=m.getTipoHabitacion();
+        idCliente=m.getCliente().getIdCliente();
 
         return this;
 

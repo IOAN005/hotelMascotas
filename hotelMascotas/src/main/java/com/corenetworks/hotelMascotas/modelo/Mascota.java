@@ -31,7 +31,7 @@ public class Mascota {
     @JsonIgnore
     @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Reserva> reservas;
-   @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "idCliente", nullable = false, foreignKey = @ForeignKey(name = "FK_mascota_cliente"))
     private Cliente cliente;

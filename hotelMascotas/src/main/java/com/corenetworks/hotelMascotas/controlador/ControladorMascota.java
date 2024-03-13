@@ -34,11 +34,10 @@ public class ControladorMascota {
         }
 
         @PostMapping
-        public ResponseEntity<Integer> insertarMascota(@Valid @RequestBody MascotaDTO m)throws Exception {
-
-             Integer i =servicio.insert1(m);
-            System.out.println(i);
-            return new ResponseEntity<>(i, HttpStatus.CREATED);
+        public ResponseEntity<MascotaDTO> insertarMascota(@Valid @RequestBody MascotaDTO m)throws Exception {
+            Mascota m1 = m.castMascota();
+            m1=servicio.insertar(m1);
+            return new ResponseEntity<>(m.castMascotaDTO(m1), HttpStatus.CREATED);
 
         }
 
@@ -57,25 +56,21 @@ public class ControladorMascota {
            Mascota m1 = servicio.consultarUno(m.getIdMascota());
 
 
-
             if (m1==null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("Mascota no encontrada" +m.getIdMascota());
             }
             m1=servicio.modificar(m.castMascota());
-            return new ResponseEntity<>(m.castMascotaDTO(m1), HttpStatus.CREATED);
+            return new ResponseEntity<>(m.castMascotaDTO(m1), HttpStatus.OK);
         }
 
         @DeleteMapping("/{id}")
-        public ResponseEntity<Void> eliminar(@PathVariable (name ="id")Integer id)throws Exception {
+        public ResponseEntity<Void> eliminar(@PathVariable(name ="id")Integer id)throws Exception {
             Mascota m1 = servicio.consultarUno(id);
-            System.out.println("---"+m1.getIdMascota());
             if (m1 == null) {
                 throw new ExcepcionPersonalizadaNoEncontrado("recurso no encontrado con ID " + id);
             }
-
             servicio.eliminar(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
         }
     }
 

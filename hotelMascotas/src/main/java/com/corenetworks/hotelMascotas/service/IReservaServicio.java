@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface IReservaServicio extends ICRUD<Reserva,Integer>{
     public Integer insert1(ReservaDTO r);
+    Integer actualizaR(ReservaDTO r);
     List<Reserva> obtenerReservas(LocalDate f1, LocalDate f2);
 
 }

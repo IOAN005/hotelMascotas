@@ -30,7 +30,6 @@ public  abstract   class ICRUDImpl<T,ID> implements ICRUD<T,ID> {
 
     @Override
     public void eliminar(ID id) throws Exception {
-        System.out.println(id);
         getRepo().deleteById(id);
 
 

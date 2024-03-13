@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/clientes")
@@ -77,6 +78,7 @@ public class ControladorCliente {
         if (c1 == null) {
             throw new ExcepcionPersonalizadaNoEncontrado("Cliente no encontrado con ID " + id);
         }
+
         servicio.eliminar(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 

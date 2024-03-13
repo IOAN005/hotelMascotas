@@ -1,6 +1,5 @@
 package com.corenetworks.hotelMascotas.service.impl;
 
-import com.corenetworks.hotelMascotas.dto.MascotaDTO;
 import com.corenetworks.hotelMascotas.modelo.Mascota;
 import com.corenetworks.hotelMascotas.repository.IGenericoRepositorio;
 import com.corenetworks.hotelMascotas.repository.IMascotaRepositorio;
@@ -17,16 +16,10 @@ public class MascotaServicioImpl extends ICRUDImpl<Mascota,Integer>implements IM
         return repo;
     }
 
-    @Override
-    public Integer insert1(MascotaDTO m) {
-        System.out.println();
 
-        return repo.inserta1(m.getEdad(),m.getNombre(),m.getRaza(),m.getTamano(),m.getTipoHabitacion(),m.getIdCliente());
-    }
-
-    @Override
-    public Integer modificar1(MascotaDTO m) {
-        return repo.inserta1(m.getEdad(),m.getNombre(),m.getRaza(),m.getTamano(),m.getTipoHabitacion(),m.getIdCliente());
-    }
+//    @Override
+//    public Integer modificar1(MascotaDTO m) {
+//        return repo.inserta1(m.getEdad(),m.getNombre(),m.getRaza(),m.getTamano(),m.getTipoHabitacion(),m.getIdCliente());
+//    }
 
 }

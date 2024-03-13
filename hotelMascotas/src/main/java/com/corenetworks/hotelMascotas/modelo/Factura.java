@@ -19,7 +19,7 @@ public class Factura {
     private int idFactura;
 
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name= "idCliente", nullable = false, foreignKey = @ForeignKey(name= "FK_factura_cliente"))
     private Cliente cliente;
